@@ -1,0 +1,26 @@
+span#basic-addon1 {
+    color: #fff;
+    background-color: #343a40;
+    border-color: #454d55;
+}
+
+#count{
+    display: inline;
+    margin: 4px 0 0 3px;
+    float: left;
+    width: 30px;
+    height: auto;
+    background: green;
+    padding: 0px 10px 0px 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.error {
+    background: red;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    font-family: Arial;
+}
