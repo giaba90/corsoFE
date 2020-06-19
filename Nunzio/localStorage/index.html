@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
 </head>
 
 <body>
@@ -17,13 +18,14 @@
             <div class="row">
                 <div class="col-sm-12 col-md-4">
                     <!-- Inserisci div -->
-                    <h4 class="h4">Inserisci i dati dell'anagrafia</h4>
+                    <h4 class="h4">Insserimento</h4>
                     <br>
+                    <form action="#" id="salvaContatto">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">Nome</span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                        <input type="text" class="form-control" placeholder="nome" aria-label="nome"
                             aria-describedby="basic-addon1" id="nome" required>
                     </div>
 
@@ -31,7 +33,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">Cognome</span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Surname" aria-label="Surname"
+                        <input type="text" class="form-control" placeholder="Cognome" aria-label="Cognome"
                             aria-describedby="basic-addon1" id="cognome" required>
                     </div>
 
@@ -43,31 +45,30 @@
                             aria-describedby="basic-addon1" id="cf" required>
                     </div>
 
-                    <button type="button" class="btn btn-secondary" id="salva">Salva</button>
-                    <button type="button" class="btn btn-danger" id="deleteuser">Cancella</button>
-
+                    <button type="submit" class="btn btn-secondary" id="salva">Salva</button>
+                    </form>
                 </div>
                 <div class="col-sm-12 col-md-4">
                     <!-- Mostra div -->
-                    <h4 class="h4" style="display: inline;float: left;">I nostri utenti</h4>
-                    <span id="count"></span>
+                    <h4 class="h4" style="display: inline;float: left;">I tuoi contatti</h4>
+                    <span id="count">0</span>
                     <span style="margin: 12px 0;width: 100%;display: block;float: left;"></span>
                     <div id="table"></div>
 
                 </div>
                 <div class="col-sm-12 col-md-4">
                     <!-- Cerca div -->
-                    <h4 class="h4">Ricerca utente</h4>
+                    <h4 class="h4">Cerca</h4>
                     <span style="margin: 11px 0;width: 10px;display: block;float: left;"></span>
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Inserisci codice fiscale"
-                            aria-label="Inserisci codice fiscale" aria-describedby="button-addon2" id="search-cf">
-                        <div class="input-group-append">
+                            aria-label="Inserisci codice fiscale" aria-describedby="button-addon2" id="search-cf"
+                            onkeyup="searchPeople()">
+                        <!--div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button" id="button-addon2">Cerca</button>
-                        </div>
+                        </div-->
                     </div>
 
-                    <span id="message"></span>
                 </div>
             </div>
         </div>

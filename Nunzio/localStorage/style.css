@@ -4,23 +4,39 @@ span#basic-addon1 {
     border-color: #454d55;
 }
 
-#count{
+#count {
     display: inline;
-    margin: 4px 0 0 3px;
-    float: left;
-    width: 30px;
-    height: auto;
+    margin: 0px 0 0 3px;
+    width: 40px;
     background: green;
-    padding: 0px 10px 0px 10px;
+    padding: 2px 4px;
     color: white;
     font-weight: bold;
-    font-size: 18px;
+    height: 40px;
+    border-radius: 50%;
 }
 
-.error {
-    background: red;
-    padding: 10px;
-    color: white;
-    font-weight: bold;
-    font-family: Arial;
+div#table {
+    display: block;
+    width: 100%;
+    float: left;
+    max-height: 200px;
+    overflow-y: auto;
 }
+
+.list-group-item {
+    margin: 5px 0px;
+}
+
+.list-group-item:first-child {
+    margin-top: 0px !important;
+}
+
+i.fa.fa-trash {
+    float: right;
+    color: red;
+}
+
+
+.show{display: block !important;}
+.hide{display: none !important;}
