@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory game</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+
     <div id="cards">
 
-        <div class="flip-card" onclick="check(this,1)">
+        <!--div class="flip-card" onclick="check(this,1)">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
                     <img src="assets/img/retro.jpg" alt="Avatar" style="width:200px;height:300px;">
@@ -19,10 +21,21 @@
                     <img src="assets/img/asso.jpg" alt="Avatar" style="width:200px;height:300px;">
                 </div>
             </div>
-        </div>
+        </div-->
 
+    </div>
+    <input type="text" name="player" id="player" placeholder="Inserisci nome giocatore">
+    <button id="start" onclick="startTime()">START</button>
+    <button id="stop" onclick="stopTime()">STOP</button>
+    <button id="reset">RESET</button>
+    <div id="box-info">
+        <h3>Nome giocatore</h3><span id="name-player"></span>
+        <div id="timer">
+            <h3>Tempo</h3>
+            <input id="time" type="text" value="0.00" disabled=""></div>
     </div>
 
     <script src="app.js"></script>
 </body>
+
 </html>
