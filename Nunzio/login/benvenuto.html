@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benvenuto</title>
+</head>
+<body>
+    <h1 id="title"></h1>
+
+    <script src="node_modules/doc-cookies/cookies_min.js"></script>
+    <script src="app.js"></script>
+    <script>
+        function welcome(){
+            let email = docCookies.getItem('app_email');
+            let user = getUserInfo(email);
+            document.getElementById('title').innerText = 'Benvenuto '+ user.nome+' '+user.cognome;
+        }
+        window.onload = welcome();
+        
+    </script>
+</body>
+</html>
