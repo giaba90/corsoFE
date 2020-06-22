@@ -1,0 +1,33 @@
+ul#myTab {
+    margin-top: 50px;
+}
+
+.mt-10{
+    margin-top: 10px;
+}
+
+div#myTabContent {
+    border: 1px solid #dee2e6;
+    padding: 33px 50px;
+    border-top: none;
+}
+
+a.nav-link {
+    background-color: #cecece;
+}
+
+span.error {
+    color: red;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin: 0 0 0 10px;
+    display: inline-block;
+}
+
+input#nome {
+    margin-bottom: 15px;
+}
+
+form {
+    margin-top: 16px;
+}

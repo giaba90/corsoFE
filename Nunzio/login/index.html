@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Registrazione</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <div id="contenitore">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                            aria-selected="true">Login</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                            aria-selected="false">Registrati</a>
+                    </li>
+                    
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <p class="h2 text-center mt-10">Login</p>
+                        <form onsubmit="loginUser()" id="formLogin" action="#">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Indirizzo email</label>
+                                <input type="email" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Inserisci email">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" required class="form-control" id="exampleInputPassword1" placeholder="Inserisci password">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Invia</button>
+                            <span class="error" id="errore-login"></span>
+                        </form>
+
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <p class="h2 text-center mt-10">Registrati</p>
+                        <form onsubmit="regUser()" id="formRegistrazione" action="#">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="nome">Nome</label>
+                                    <input type="text" id="nome" required class="form-control" placeholder="Nome">
+                                </div>
+                                <div class="col">
+                                    <label for="cognome">Cognome</label>
+                                    <input type="text" id="cognome" required class="form-control" placeholder="Cognome">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="formGroupExampleInput">Indirizzo email</label>
+                                <input type="text" required class="form-control" id="formGroupExampleInput" placeholder="Inserisci il tuo indirizzo email">
+                            </div>
+                            <div class="form-group">
+                                <label for="formGroupExampleInput2">Password</label>
+                                <input type="password" required class="form-control" id="formGroupExampleInput2" placeholder="Inserisci una password">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Invia</button>
+                            <span class="error" id="errore-registrazione"></span>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
+
+    <script src="app.js"></script>
+</body>
+</html>
