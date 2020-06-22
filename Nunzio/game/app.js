@@ -55,6 +55,7 @@ let firstCard = undefined;
 let secondCard = undefined;
 let punteggi = [];
 let timing;
+let nclick = 0; //register the click number
 
 // function //
 
@@ -77,8 +78,7 @@ function printCard() {
 function startTime() {
     let clock = parseFloat(0);
     let sec = 0.01;
-    let min = 1.00;
-    let tmp;
+ 
     let time = document.getElementById('time');
     let name = document.getElementById('player').value;
     if (name == "") {
@@ -94,14 +94,6 @@ function startTime() {
    timing =  setInterval(function () {
        clock += sec;
 
-        tmp = clock[clock.length - 2];
-        tmp += clock[clock.length - 1];
-       console.log(tmp);
-        if (tmp == '60') {
-            clock += min;
-        }
-
-        console.log(clock.toFixed(2).toString());
         time.value = clock.toFixed(2).toString();
     }, 1000);
 }
@@ -117,11 +109,26 @@ function stopTime() {
     if (confirmation == true) { 
         obj = {
             nome: document.getElementById('name-player').innerText,
-            tempo: document.getElementById('time').value
+            tempo: document.getElementById('time').value,
+            n_click: (nclick / 2)
         }
+
+        if (isRecord(obj.tempo)) {
+            alert('Complimenti hai battuto il record');
+        }
+        else {
+            alert('Mi dispiace non hai battuto il record');
+        }
+
         punteggi.push(obj);
+        punteggi.sort(function (a, b) {
+            return a.tempo - b.tempo;
+        });
         //scrittura nello storage
         window.localStorage.setItem('punteggi', JSON.stringify(punteggi));
+        document.getElementById('table-record').innerHTML = printTable(punteggi);
+
+       
     }
 }
 
@@ -129,7 +136,8 @@ function stopTime() {
 //input element html and value of card
 function check(el, id) {
     click += 1;
- 
+    nclick += 1;
+
     if (click == 1) {
         firstCard = {
             val: id,
@@ -162,6 +170,54 @@ function check(el, id) {
     
 }
 
+function isRecord(tempo) {
+    let record = false;
+    if (parseFloat(tempo) < parseFloat(punteggi[0].tempo) ) {
+        record = true;
+    }
+    return record;
+}
+
+function printTable(obj) {
+    let markup;
+
+    markup += `<table class="table">
+        <thead class="thead-dark" >
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Tempo</th>
+                <th scope="col">N. click</th>
+            </tr>
+            </thead>
+        <tbody>`;
+    if (obj != '' || obj.length > 0) {
+        for (i = 0; i < obj.length; i++) {
+            //fai qualcosa
+            markup += `<tr>
+                <th scope="row">`+ i +`</th>
+                <td>`+ obj[i].nome +`</td>
+                <td>`+ obj[i].tempo+`</td>
+                <td>`+ obj[i].n_click+`</td>
+            </tr>`;
+        }
+    }
+    else {
+        markup += `<tr>
+                    <th scope="row">1</th>
+                    <td>Nessun risultato trovato</td>
+                </tr>`;
+    }
+    
+    
+    markup += `
+         </tbody>
+        </table>
+    `;
+
+    return markup;
+}
+
 //main
 window.onload = function () {
       if (window.localStorage.getItem('punteggi') != null) { //verifico che ci siano persone nello storage
@@ -170,6 +226,7 @@ window.onload = function () {
 
       }
 
+    document.getElementById('table-record').innerHTML = printTable(punteggi);
 }
 
 document.getElementById('reset').addEventListener('click', () => {
